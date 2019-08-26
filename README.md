@@ -1,6 +1,6 @@
 # README
 
-## About
+## ABOUT
 
 used framework: flask
 used dbms: mysql
@@ -17,9 +17,9 @@ relised features:
   6. readme file
   7. test are done only for POST and GET
   8. app is a service (will work after reboot) through changing 
-  sudo vi /etc/init/flask.conf 
-  and 
-  sudo vi /lib/systemd/system/flask.service
+  sudo vi /etc/init/flask.conf  
+  and  
+  sudo vi /lib/systemd/system/flask.service  
 
 
 
