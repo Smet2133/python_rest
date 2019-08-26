@@ -1,5 +1,28 @@
 # README
 
+## About
+
+used framework: flask
+used dbms: mysql
+used libraries: flask, flask_mysqldb, datetime
+
+
+
+relised features:
+  1. POST /imports
+  2. PATCH /imports/$import_id/citizens/$citizen_id
+  3. GET /imports/$import_id/citizens
+  4. GET /imports/$import_id/citizens/birthdays
+  5. data validation
+  6. readme file
+  7. test are done only for POST and GET
+  8. app is a service (will work after reboot) through changing 
+  sudo vi /etc/init/flask.conf 
+  and 
+  sudo vi /lib/systemd/system/flask.service
+
+
+
 ## HOW TO DEPLOY APP:
 
 ### 1. login to server using ssh (e.g. putty) 
@@ -57,7 +80,13 @@ mysql> exit
 c:\pscp C:\py\rest\app.py entrant@84.201.158.146:/home/entrant/app/app.py  
 c:\pscp C:\py\rest\tests_for_app.py entrant@84.201.158.146:/home/entrant/app/tests_for_app.py  
 
-### 4. run app
+### 4. download modules and run app
+
+sudo apt install python3-pip  
+sudo -H python3 -m pip install flask  
+sudo -H python3 -m pip install flask_mysqldb
+
+
 cd app   
 sudo python3 app.py  
 
@@ -131,7 +160,6 @@ curl -X PATCH \
   -H 'Content-Type: application/json' \
   -d '
         {
-
             "town": "London",
             "name": "masha",
             "birth_date": "12.11.2017",
@@ -144,7 +172,7 @@ curl -X GET \
   http://0.0.0.0:8080/imports/5/citizens/birthdays \
   -H 'Content-Type: application/json' 
 
-
-
+### 6. check tests
+sudo python3 tests_for_app.py  
 
 
